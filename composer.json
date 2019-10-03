@@ -11,8 +11,9 @@
         "sort-packages": true
     },
     "require": {
+        "cweagans/composer-patches": "^1.6",
         "magento/product-community-edition": "2.3.2",
-        "mageplaza/module-gdpr": "^1.2"
+        "mageplaza/module-gdpr": "1.2.2.1"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
@@ -73,6 +74,11 @@
         }
     },
     "extra": {
-        "magento-force": "override"
-    }
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+        "magento/framework": {
+        "WAMP/XAMP-issue: admin screen is full grey": "patches/composer/example.diff"
+        }
+        }
+        }
 }
